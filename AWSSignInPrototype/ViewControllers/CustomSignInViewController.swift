@@ -12,8 +12,14 @@ class CustomSignInViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+//        AWSMobileClient.default().initialize { (userState, error) in
+//            if let error = error {
+//                print("❌ There was an error in \(#function) \(error) : \(error.localizedDescription) : \(#file) \(#line)")
+//                
+//            }
+//        }
         // Do any additional setup after loading the view.
+        
     }
     
 

@@ -10,7 +10,7 @@ import UIKit
 import AWSMobileClient
 class ViewController: UIViewController {
     
-    
+
     @IBOutlet weak var signInStateLabel: UILabel!
     
     override func viewDidLoad() {
@@ -84,6 +84,10 @@ class ViewController: UIViewController {
             }
         }
     }
+    @IBAction func signOut(_ sender: Any) {
     
+        AWSMobileClient.default().signOut()
+        
+    }
 }
 

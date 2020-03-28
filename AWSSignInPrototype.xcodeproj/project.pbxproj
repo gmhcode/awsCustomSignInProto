@@ -19,6 +19,7 @@
 		90990322242EB90D00C89AAC /* CustomSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90990321242EB90D00C89AAC /* CustomSignInViewController.swift */; };
 		90990324242EB91D00C89AAC /* CreateNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90990323242EB91D00C89AAC /* CreateNewViewController.swift */; };
 		90990326242EC5A200C89AAC /* ConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90990325242EC5A200C89AAC /* ConfirmationViewController.swift */; };
+		90990329242FC85200C89AAC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90990328242FC85200C89AAC /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		90990321242EB90D00C89AAC /* CustomSignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSignInViewController.swift; sourceTree = "<group>"; };
 		90990323242EB91D00C89AAC /* CreateNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewViewController.swift; sourceTree = "<group>"; };
 		90990325242EC5A200C89AAC /* ConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationViewController.swift; sourceTree = "<group>"; };
+		90990328242FC85200C89AAC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 		90990305242D943D00C89AAC /* AWSSignInPrototype */ = {
 			isa = PBXGroup;
 			children = (
+				90990327242FC84800C89AAC /* Model */,
 				9099031C242D96DF00C89AAC /* awsconfiguration.json */,
 				9099031E242D97D900C89AAC /* awsconfiguration.json */,
 				90990306242D943D00C89AAC /* AppDelegate.swift */,
@@ -103,6 +106,14 @@
 				90990325242EC5A200C89AAC /* ConfirmationViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		90990327242FC84800C89AAC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				90990328242FC85200C89AAC /* User.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		BB40C9546EC038DD96299C08 /* Pods */ = {
@@ -237,6 +248,7 @@
 				90990322242EB90D00C89AAC /* CustomSignInViewController.swift in Sources */,
 				90990309242D943D00C89AAC /* SceneDelegate.swift in Sources */,
 				90990324242EB91D00C89AAC /* CreateNewViewController.swift in Sources */,
+				90990329242FC85200C89AAC /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

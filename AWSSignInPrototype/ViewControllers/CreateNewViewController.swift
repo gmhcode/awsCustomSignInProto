@@ -8,8 +8,12 @@
 
 import UIKit
 import AWSMobileClient
+var theUser : User!
 class CreateNewViewController: UIViewController {
 
+    
+    
+    @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     
     @IBOutlet weak var passwordTextField: UITextField!
@@ -25,17 +29,38 @@ class CreateNewViewController: UIViewController {
 
     
     func signUp(){
+        guard let emailText = emailTextField.text,
+            let passwordText = passwordTextField.text,
+            let retypePassword = retypePasswordTextField.text,
+            let username = usernameTextField.text else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
+
+        
+        if passwordText != retypePassword {
+            // Show passwords do not match alert
+        }
+        
+        let user = User(username: username, email: emailText, uuid: UUID().uuidString, password: passwordText)
         
         
-        AWSMobileClient.default().signUp(username: "your_username",
-                                                password: "Abc@123!",
-                                                userAttributes: ["email":"john@doe.com", "phone_number": "+1973123456"]) { (signUpResult, error) in
+        AWSMobileClient.default().signUp(username: user.email,
+                                         password: user.password,
+                                         userAttributes: ["email":user.email,"custom:uuid":user.uuid]) { (signUpResult, error) in
             if let signUpResult = signUpResult {
                 switch(signUpResult.signUpConfirmationState) {
                 case .confirmed:
-                    print("User is signed up and confirmed.")
+                    print("🏊🏾‍♂️ User is signed up and confirmed.")
+                //TODO : Alert saying the user already exists
                 case .unconfirmed:
-                    print("User is not confirmed and needs verification via \(signUpResult.codeDeliveryDetails!.deliveryMedium) sent at \(signUpResult.codeDeliveryDetails!.destination!)")
+                    
+                    
+                    
+                    print("🚣🏼‍♂️ User is not confirmed and needs verification via \(signUpResult.codeDeliveryDetails!.deliveryMedium) sent at \(signUpResult.codeDeliveryDetails!.destination!)")
+                    theUser = user
+                    
+                    
+                    
+                    
+                    
                 case .unknown:
                     print("Unexpected case")
                 }
@@ -43,7 +68,9 @@ class CreateNewViewController: UIViewController {
                 if let error = error as? AWSMobileClientError {
                     switch(error) {
                     case .usernameExists(let message):
-                        print(message)
+                        print(message, " 🥇")
+                         //TODO : Alert saying the user already exists
+                    
                     default:
                         break
                     }
@@ -53,8 +80,11 @@ class CreateNewViewController: UIViewController {
         }
     }
     
+    @IBAction func signUpTapped(_ sender: Any) {
+         signUp()
+    }
     func confirmSignUp(){
-     
+    
     }
     
     

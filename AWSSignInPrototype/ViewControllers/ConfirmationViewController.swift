@@ -18,10 +18,13 @@ class ConfirmationViewController: UIViewController {
     }
     
     func checkConfirmationNumber(){
-        AWSMobileClient.default().confirmSignUp(username: "your_username", confirmationCode: confirmTextField.text!) { (signUpResult, error) in
+        guard let confirmation = confirmTextField.text else { return  }
+        AWSMobileClient.default().confirmSignUp(username: theUser.email, confirmationCode: confirmation) { (signUpResult, error) in
                  if let signUpResult = signUpResult {
                      switch(signUpResult.signUpConfirmationState) {
                      case .confirmed:
+                        
+                        
                          print("User is signed up and confirmed.")
                      case .unconfirmed:
                          print("User is not confirmed and needs verification via \(signUpResult.codeDeliveryDetails!.deliveryMedium) sent at \(signUpResult.codeDeliveryDetails!.destination!)")
@@ -34,7 +37,10 @@ class ConfirmationViewController: UIViewController {
              }
     }
     
-
+    @IBAction func confirmTapped(_ sender: Any) {
+        checkConfirmationNumber()
+    }
+    
     /*
     // MARK: - Navigation
 
