@@ -1,0 +1,7 @@
+{
+    "awsenv": {
+        "configLevel": "project",
+        "useProfile": true,
+        "profileName": "gmhcode"
+    }
+}
